@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Custom Product Info
+Bundle-SymbolicName: ni.idempiere.product.info
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: ni.idempiere.product.info
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.adempiere.base;bundle-version="3.1.0",
+ org.adempiere.plugin.utils;bundle-version="3.1.0",
+ org.adempiere.ui.zk;bundle-version="3.1.0"
+Bundle-Activator: org.adempiere.plugin.utils.AdempiereActivator
+Import-Package: org.adempiere.webui.factory
+Service-Component: OSGI-INF/InfoWindowFactory.xml
