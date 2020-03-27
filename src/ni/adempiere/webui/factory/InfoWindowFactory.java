@@ -7,6 +7,8 @@ import org.compiere.model.GridField;
 import org.compiere.model.Lookup;
 import org.compiere.util.CLogger;
 
+import ni.adempiere.webui.info.InfoProductWindow;
+
 public class InfoWindowFactory implements IInfoFactory{
 
 	private CLogger log = CLogger.getCLogger(InfoWindowFactory.class);
@@ -17,6 +19,13 @@ public class InfoWindowFactory implements IInfoFactory{
 
 		log.warning("1");
 		
+		if(tableName.equalsIgnoreCase("M_Product")){
+			
+			InfoPanel p =  new InfoProductWindow(WindowNo, tableName, keyColumn, null, multiSelection, whereClause, AD_InfoWindow_ID,lookup);
+			if(p.loadedOK())
+				return p;
+		}
+		
 		return null;
 	}
 
@@ -26,6 +35,12 @@ public class InfoWindowFactory implements IInfoFactory{
 		
 		
 		log.warning("2");
+		
+		if(tableName.equalsIgnoreCase("M_Product")) {
+			InfoPanel p = new InfoProductWindow(lookup.getWindowNo(),tableName, keyColumn, null, multiSelection, whereClause, AD_InfoWindow_ID, true);
+			if(p.loadedOK())
+				return p;
+		}
 		
 		return null;
 	}
